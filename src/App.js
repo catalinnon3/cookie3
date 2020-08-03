@@ -33,9 +33,9 @@ const random = require('random');
 
 const os = platform();
 
-let app_id = 7557583,
-	group_id = 197650790,
-	need_balance = false;
+let app_id = 7557573,
+	group_id = 197650766,
+	need_balance = true;
 
 let prefix = '_________';
 
@@ -172,7 +172,7 @@ class App extends React.Component {
 
 	async updateStorage () {
 		let keys1 = [ 'used1', 'used2', 'used3' ],
-			keys2 = [ 'balance', 'share_story', 'allow_msg', 'share_wall', 'sub_group', 'allow_noty', 'got_free' ];
+			keys2 = [ 'balance', 'share_story', 'allow_msg', 'share_wall', /*'sub_group',*/ 'allow_noty', 'got_free' ];
 		let sValues = await bridge.sendPromise('VKWebAppStorageGet', { keys: need_balance ? (keys2.join(prefix+',') + prefix).split(',') : (keys1.join(prefix+',') + prefix).split(',') });
 		sValues = sValues.keys;
 		let data = {};
@@ -324,12 +324,7 @@ class App extends React.Component {
 							<div className={'centered_'} style={{ position: 'absolute', top: '10vh', width: '100%', color: 'white', textAlign: 'center' }}>
 								<img src={cookieIcon} style={{ marginRight: 8, display: this.state.screen || need_balance && 'none' }} height={32}/>
 								<Title level='1' style={{ fontFamily: 'Font', fontWeight: '400', letterSpacing: '2px', fontSize: '28px' }}>
-									{!this.state.screen ?
-										need_balance ?
-											''
-											:
-											'Печенька'
-										:
+									{this.state.screen &&
 										'Моё предсказание из печеньки на сегодня'.toUpperCase()
 									}
 								</Title>
@@ -396,7 +391,7 @@ class App extends React.Component {
 																				</Snackbar>
 																		});
 																	}catch (e) {}
-																}else if(!this.state.data['sub_group' + prefix]){
+																}/*else if(!this.state.data['sub_group' + prefix]){
 																	console.log('sub_group');
 																	try{
 																		await bridge.sendPromise('VKWebAppJoinGroup', {group_id});
@@ -412,7 +407,7 @@ class App extends React.Component {
 																				</Snackbar>
 																		});
 																	}catch (e) {}
-																}else if(!this.state.data['allow_noty' + prefix]){
+																}*/else if(!this.state.data['allow_noty' + prefix]){
 																	console.log('allow_noty');
 																	try{
 																		await bridge.sendPromise('VKWebAppAllowNotifications', {});
