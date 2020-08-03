@@ -33,9 +33,9 @@ const random = require('random');
 
 const os = platform();
 
-let app_id = 7557576,
-	group_id = 197650774,
-	need_balance = true;
+let app_id = 7557583,
+	group_id = 197650790,
+	need_balance = false;
 
 let prefix = '_________';
 
@@ -322,7 +322,7 @@ class App extends React.Component {
 						}
 						<div className='absolute_centered' style={{ transform: 'translate(-50%, -70%)' }}>
 							<div className={'centered_'} style={{ position: 'absolute', top: '10vh', width: '100%', color: 'white', textAlign: 'center' }}>
-								<img src={cookieIcon} style={{ marginRight: 8, display: this.state.screen || need_balance && 'none' }} height={32}/>
+								{ false && <img src={cookieIcon} style={{ marginRight: 8, display: this.state.screen || need_balance && 'none' }} height={32}/> }
 								<Title level='1' style={{ fontFamily: 'Font', fontWeight: '400', letterSpacing: '2px', fontSize: '28px' }}>
 									{this.state.screen &&
 										'Моё предсказание из печеньки на сегодня'.toUpperCase()
