@@ -33,11 +33,11 @@ const random = require('random');
 
 const os = platform();
 
-let app_id = 7554927,
-	group_id = 197570628,
+let app_id = 7557576,
+	group_id = 197650774,
 	need_balance = true;
 
-let prefix = '_______';
+let prefix = '_________';
 
 class App extends React.Component {
 
@@ -343,7 +343,7 @@ class App extends React.Component {
 							/>
 							<div className='absolute_centered' style={{ backgroundImage: `url(${paper})`, backgroundRepeat: 'repeat', display: !this.state.showText && 'none', borderRadius: this.viewportToPixels('1vh') }}>
 								<Headline weight='bold' style={{ padding: '16px', width: '70vw', textAlign: 'center' }}>{
-									<div dangerouslySetInnerHTML={{ __html: this.state.phrases[random.int(0, this.state.phrases.length-1)].replace('\n', '<br/>') }} />
+									<div dangerouslySetInnerHTML={{ __html: this.state.phrase }} />
 								}</Headline>
 							</div>
 							{
@@ -531,7 +531,7 @@ class App extends React.Component {
 
 									this.setState({ cookieAnimStarted: false, showText: false });
 									setTimeout(()=>{
-										this.setState({ cookieAnimStarted: true, showText: true, used: true });
+										this.setState({ cookieAnimStarted: true, showText: true, used: true, phrase: this.state.phrases[random.int(0, this.state.phrases.length-1)].replace('\n', '<br/>') });
 									}, 2250)
 								}}>{ need_balance ? 'Разломить за 1 ' : this.state.showText ? 'Попробовать снова' : 'Разломить печеньку' } { need_balance && <img style={{ marginLeft: 8 }} src={sugar} height={32}/> }</Button>
 							}
