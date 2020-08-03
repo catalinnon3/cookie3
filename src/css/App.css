@@ -1,3 +1,29 @@
+pre {
+    text-decoration: none;
+}
+
+body{
+    overflow: hidden;
+}
+
+.Alert--android .Alert__footer {
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+}
+
+.Alert--android .Alert__btn {
+    margin: 0;
+}
+
+.Button__content {
+    display: flex;
+    align-items: center;
+}
+
+.Snackbar__body {
+    margin-bottom: 50px;
+}
 .centered {
     display: flex;
     display: -ms-flex;
@@ -6,6 +32,14 @@
     align-items: center;
     justify-content: center;
     -webkit-align-items: center;
+    -webkit-justify-content: center;
+}
+.centered_ {
+    display: flex;
+    display: -ms-flex;
+    display: -moz-flex;
+    display: -webkit-flex;
+    justify-content: center;
     -webkit-justify-content: center;
 }
 .absolute_centered {
@@ -20,16 +54,12 @@
 }
 
 .animated-background {
-    background: linear-gradient(310deg, #19191a, #232324, #2c2d2e, #363738, #454647);
+    background: linear-gradient(310deg, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #2CD8D5 10%, #C5C1FF 56%);
     background-size: 1000% 1000%;
 
-    -webkit-animation: gradient-animation 45s ease infinite;
-    -moz-animation: gradient-animation 45s ease infinite;
-    animation: gradient-animation 45s ease infinite;
-
-    -webkit-box-shadow: 0px -10px 57px 0px rgba(0,0,0,0.3);
-    -moz-box-shadow: 0px -10px 57px 0px rgba(0,0,0,0.3);
-    box-shadow: 0px -10px 57px 0px rgba(0,0,0,0.3);
+    -webkit-animation: gradient-animation 60s ease infinite;
+    -moz-animation: gradient-animation 60s ease infinite;
+    animation: gradient-animation 60s ease infinite;
 }
 
 @-webkit-keyframes gradient-animation {
@@ -59,4 +89,38 @@
 
 .animated-loading {
     animation: loading .5s ease-in-out;
+}
+
+#bg_shapes {
+    opacity: .4;
+}
+
+.bg_shape_container {
+    position: absolute;
+    width: 25%;
+    animation: bg_anim1 10000ms;
+}
+
+.bg_shape {
+    position: absolute;
+    width: 100%;
+    animation: bg_anim2 10000ms;
+}
+
+@keyframes bg_anim1 {
+    100% { transform: translateY(-50vh); }
+    0% { transform: translateY(100vh); }
+}
+
+@keyframes bg_anim2 {
+    0% { transform: translateX(var(--offset-x-1)); }
+    25% { transform: translateX(var(--offset-x-2)); }
+    50% { transform: translateX(var(--offset-x-3)); }
+    75% { transform: translateX(var(--offset-x-4)); }
+    100% { transform: translateX(var(--offset-x-5)); }
+}
+
+@font-face {
+    font-family: Font;
+    src: url(../font.otf);
 }
