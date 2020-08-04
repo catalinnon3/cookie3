@@ -29,15 +29,17 @@ import e11 from './img/e11.png';
 import Lottie from 'react-lottie'
 import animDataCookie from './animations/cookie.json'
 
+import eruda from 'eruda';
+
 const random = require('random');
 
 const os = platform();
 
-let app_id = 7557583,
-	group_id = 197650790,
-	need_balance = false;
+let app_id = 7557573,
+	group_id = 197650766,
+	need_balance = true;
 
-let prefix = '_________';
+let prefix = '___________';
 
 class App extends React.Component {
 
@@ -179,7 +181,7 @@ class App extends React.Component {
 		try{
 			for(let value of sValues){
 				let nmbr = Number(value.value);
-				data[value.key] = (value.value == 'true' || value.value == 'false') ? value.value == 'true' : nmbr > 0 ? nmbr : value.value;
+				data[value.key] = (value.value == 'true' || value.value == 'false' || value.value == '') ? value.value == 'true' : nmbr > 0 ? nmbr : value.value;
 			}
 		}catch (e) {
 			console.error('e3', e)
